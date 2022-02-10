@@ -1,0 +1,82 @@
+# This is an example .goreleaser.yml file with some sensible defaults.
+# Make sure to check the documentation at https://goreleaser.com
+before:
+  hooks:
+    # You may remove this if you don't use go modules.
+    - go mod tidy
+    # you may remove this if you don't need go generate
+    - go generate ./...
+builds:
+  - env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - windows
+      - darwin
+archives:
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      386: i386
+      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ incpatch .Version }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+# .goreleaser.yaml
+brews:
+  -
+    name: ireaver
+
+    # GOARM to specify which 32-bit arm version to use if there are multiple versions
+    # from the build section. Brew formulas support atm only one 32-bit version.
+    # Default is 6 for all artifacts or each id if there a multiple versions.
+    goarm: 6
+
+    tap:
+      owner: Celtech
+      name: iReaver-Tap
+      token: '{{ .Env.GITHUB_TOKEN }}'
+    url_template: "https://github.com/Celtech/iReaver/releases/{{ .Tag }}/{{ .ArtifactName }}"
+
+    commit_author:
+      name: Tim Hinz
+      email: timhinz16@gmail.com
+
+    commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
+
+    # Caveats for the user of your binary.
+    # Default is empty.
+    caveats: "How to use this binary"
+
+    # Your app's homepage.
+    # Default is empty.
+    # homepage: "https://example.com/"
+
+    description: "MacOS Photos backup export tool."
+
+    license: "MIT"
+
+#    # Packages your package depends on.
+#    dependencies:
+#      - name: git
+#      - name: zsh
+#        type: optional
+
+#    # Packages that conflict with your package.
+#    conflicts:
+#      - svn
+#      - bash
+
+#    # So you can `brew test` your formula.
+#    # Default is empty.
+#    test: |
+#      system "#{bin}/program --version"
+#      ...
