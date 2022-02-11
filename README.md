@@ -15,13 +15,13 @@
 <div align="center">
     <img src="https://github.com/Celtech/iReaver/actions/workflows/release.yml/badge.svg"
      alt="Pipeline Status">
-    <img src="https://img.shields.io/badge/apache%20version-2.4-orange?&logo=apache">
     <img src="https://img.shields.io/badge/binary%20size-1.4%20MB-blue?&logo=go">
 </div>
 
 <div align="center">
   <a href="#installation">Installation</a> •
   <a href="#quick-start">Quick Start</a> •
+  <a href="#automating-backups">Automating Backups</a> •
   <a href="#flags">Flags</a>
 </div>
 
@@ -65,6 +65,14 @@ $ ireaver -o "~/photos-backup"
 
 This command will copy all the files from your Photos app to a folder in your home directory using the original file names. 
 For a complete list of all possible flags, see the flags section below.
+
+## Automating Backups
+```shell
+$ crontab -e
+
+# add the following to the crontab to schedule a backup at 8am daily.
+0 8 * * * ireaver -o "~/photos-backup"
+```
 
 ## Flags
 ```shell
