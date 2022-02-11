@@ -42,9 +42,9 @@ brews:
 
     tap:
       owner: Celtech
-      name: iReaver-Tap
+      name: homebrew-iReaver
       token: '{{ .Env.GITHUB_TOKEN }}'
-    url_template: "https://github.com/Celtech/iReaver/releases/{{ .Tag }}/{{ .ArtifactName }}"
+    url_template: "https://github.com/Celtech/iReaver/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
 
     commit_author:
       name: Tim Hinz

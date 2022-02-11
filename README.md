@@ -5,6 +5,12 @@ of your choice with 3 naming options to choose from.
 
 ## Quick Start
 
+### Homebrew
+```shell
+$ brew tap Celtech/iReaver
+$ brew install iReaver
+```
+
 ## Options
 ```shell
   -h, --help            help for ireaver
