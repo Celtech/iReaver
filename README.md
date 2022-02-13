@@ -25,6 +25,12 @@
   <a href="#flags">Flags</a>
 </div>
 
+<hr>
+
+<div style="border-radius: 11px;">
+<img style="border-radius: 11px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);" src="https://i.imgur.com/BPh3Cb7.gif">
+</div> 
+
 ## Installation
 
 ### Homebrew
@@ -55,7 +61,9 @@ Before we can use iReaver, we first need to configure a setting inside the photo
 on your Mac. Once open, click `Photos -> Prefernces...` in the menu bar. Once your preferences window opens, head to the 
 iCloud tab, and ensure that `Download Originals to this Mac` is selected.
 
+<div align="center">
 <img width="700" alt="Screen Shot 2022-02-10 at 11 12 44 PM" src="https://user-images.githubusercontent.com/7949140/153540857-3148ffd7-fe84-4ad8-8cd7-4e1652983f99.png">
+</div>
 
 Once you have this done, wait for Photos to finish downloading all the files. After that let's run the following command:
 
